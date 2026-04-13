@@ -44,14 +44,23 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 /* Posicionamiento del formulario sobre el banner */
 .main-banner {
     position: relative;
-    height: 600px;
+    width: 100%;
+    min-height: 400px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('images/banner.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.banner-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 95%;
+    height: auto;
+    z-index: -1;
 }
 
 .overlay {
@@ -61,6 +70,7 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     text-align: center;
     z-index: 1;
     position: relative;
+    padding: 40px 20px;
 }
 
 .overlay h1 {
@@ -615,4 +625,45 @@ input {
     color: #666;
     font-size: 0.9rem;
     border-top: 1px solid #222;
+}
+
+/* Media queries para banner responsive */
+@media (max-width: 1024px) {
+    .main-banner {
+        min-height: 350px;
+    }
+    
+    .banner-img {
+        max-width: 98%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-banner {
+        min-height: 300px;
+    }
+    
+    .overlay {
+        padding: 30px 15px;
+    }
+    
+    .overlay img {
+        max-width: 80%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-banner {
+        min-height: 250px;
+    }
+    
+    .overlay {
+        padding: 20px 10px;
+    }
+    
+    .overlay img {
+        max-width: 90%;
+        height: auto;
+    }
 }
