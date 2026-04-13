@@ -119,14 +119,15 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     position: relative;
     z-index: 10;
     background: rgba(10, 10, 10, 0.85);
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
     border: 1px solid #c471ed;
     text-align: center;
     backdrop-filter: blur(10px);
-    width: 100%;
+    width: 90%;
     max-width: 400px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-sizing: border-box;
 }
 
 .logo-space {
@@ -149,17 +150,20 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     flex-direction: column;
     gap: 15px;
     margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .mini-form input {
     width: 100%;
-    padding: 12px;
+    padding: 12px 15px;
     background: rgba(255,255,255,0.1);
     border: 1px solid #444;
     border-radius: 8px;
     color: #fff;
     box-sizing: border-box;
     font-size: 1rem;
+    min-height: 45px;
 }
 
 .mini-form input::placeholder {
@@ -270,8 +274,10 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 .step-grid,
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .card {
@@ -322,10 +328,12 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     align-items: start;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .offer-content {
@@ -366,8 +374,10 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--tex
 
 .form-fields {
     display: flex;
+    flex-direction: column;
     gap: 16px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 input {
@@ -449,24 +459,153 @@ input {
     .main-nav ul {
         justify-content: center;
     }
+    
+    .section-block {
+        padding: 50px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-block {
+        padding: 40px 5%;
+    }
+    
+    .section-block h2 {
+        font-size: 1.5rem;
+    }
+    
+    .offer-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .offer-card h2 {
+        font-size: 1.5rem;
+    }
+    
+    .step-grid,
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 50px 5%;
+    }
+    
+    .form-container {
+        max-width: 100%;
+        padding: 20px;
+    }
 }
 
 @media (max-width: 640px) {
-    .section-block { padding: 40px 6%; }
-    .main-nav ul {
-        padding: 10px 5%;
-        gap: 10px;
+    .section-block { 
+        padding: 30px 5%; 
     }
-    .main-nav a {
-        padding: 8px 14px;
+    
+    .section-block h2 {
+        font-size: 1.3rem;
+    }
+    
+    .section-block p {
         font-size: 0.95rem;
     }
-    .offer-card {
-        padding: 24px;
+    
+    .main-nav ul {
+        padding: 8px 5%;
+        gap: 8px;
     }
-    .offer-card h2 { font-size: 1.7rem; }
+    
+    .main-nav a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .card {
+        padding: 16px;
+    }
+    
+    .card h3 {
+        font-size: 1rem;
+    }
+    
+    .offer-card {
+        padding: 16px;
+        gap: 16px;
+    }
+    
+    .offer-card h2 { 
+        font-size: 1.3rem; 
+    }
+    
     .form-fields {
         flex-direction: column;
+    }
+    
+    .contact-overlay {
+        padding: 20px;
+        max-width: 95%;
+    }
+    
+    .contact-overlay h3 {
+        font-size: 1.2rem;
+    }
+    
+    .mini-form input,
+    .btn-activate {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-block {
+        padding: 25px 4%;
+    }
+    
+    .section-block h2 {
+        font-size: 1.2rem;
+    }
+    
+    .main-nav ul {
+        padding: 6px 4%;
+        gap: 6px;
+    }
+    
+    .main-nav a {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .card {
+        padding: 12px;
+    }
+    
+    .card h3 {
+        font-size: 0.95rem;
+    }
+    
+    .card p {
+        font-size: 0.9rem;
+    }
+    
+    .contact-overlay {
+        padding: 15px;
+        max-width: 98%;
+    }
+    
+    .mini-form input::placeholder {
+        font-size: 0.9rem;
+    }
+    
+    .social-icons {
+        gap: 15px;
+    }
+    
+    .icon-lila {
+        width: 45px;
+        height: 45px;
     }
 }
 
